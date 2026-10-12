@@ -36,14 +36,4 @@ resource "terraform_data" "bootstrap" {
             "sudo sh /tmp/bootstrap.sh"
         ]    
     }
-
-resource "aws_iam_role_policy_attachment" "mongodb" {
-  role       = aws_iam_role.mongodb.name
-  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
-}
-
-# Create the instance profile
-resource "aws_iam_instance_profile" "mongodb" {
-    name = "${var.project}.${var.environment}-mongodb"
-    role = aws_iam_role.mongodb.name
 }
