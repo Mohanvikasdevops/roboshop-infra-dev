@@ -1,0 +1,21 @@
+bastion:
+- name: bastion_internet
+  port: 22
+  src: internet
+  dest: bastion
+mongodb: 
+- name: mongodb_bastion
+  port: 22
+  src: bastion
+  dest: mongodb
+- name: mongodb_catalogue # Mongodb accepting connections from catalogue service
+  port: 27017
+  protocol: tcp
+  src: catalogue
+  dest: mongodb
+- name: mongodb_user
+  port: 27017
+  protocol: tcp
+  src: user 
+  dest: mongodb
+        -
