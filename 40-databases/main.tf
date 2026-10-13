@@ -14,9 +14,9 @@ resource "aws_instance" "mongodb" {
 }  
 
 resource "terraform_data" "mongodb" {
-    
+
     depends_on = [
-        aws_instance.mongodb.id
+        aws_instance.mongodb
     ]
 
     triggers_replace = [
@@ -61,7 +61,7 @@ resource "aws_instance" "redis" {
 resource "terraform_data" "redis" {
 
     depends_on = [
-        aws_instance.mongodb.id
+        aws_instance.redis
     ]
 
     triggers_replace = [
