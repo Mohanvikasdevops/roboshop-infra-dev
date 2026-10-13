@@ -3,7 +3,7 @@ data "http" "my_public_ip_v4" {
 }
 
 output "my_public_ip_v4" {
-  value = data.http.my_public_ip_v4.body
+  value = data.http.my_public_ip_v4.response_body
 }
 
 data "aws_ssm_parameter" "bastion_sg_id" {
