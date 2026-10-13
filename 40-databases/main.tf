@@ -14,6 +14,11 @@ resource "aws_instance" "mongodb" {
 }  
 
 resource "terraform_data" "mongodb" {
+    
+    depends_on = [
+        aws_instance.mongodb.id
+    ]
+
     triggers_replace = [
         aws_instance.mongodb.id
     ]
@@ -53,7 +58,12 @@ resource "aws_instance" "redis" {
     )
 }  
 
-resource "terraform_data" "bootstrap" {
+resource "terraform_data" "redis" {
+
+    depends_on = [
+        aws_instance.mongodb.id
+    ]
+
     triggers_replace = [
         aws_instance.redis.id
     ]
