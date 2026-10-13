@@ -3,7 +3,7 @@ resource "aws_iam_role" "mysql" {
 
     # Terraform's "jsoncode" function converts a 
     # Terraform expression result to valid JSON syntax.
-    assume_role_policy = jsoncode({
+    assume_role_policy = jsonencode({
         Version = "1"
         Statement = [
             {
