@@ -19,4 +19,5 @@ locals {
         ] 
     )
     rabbitmq_sg_id = data.aws_ssm_parameter.rabbitmq_sg_id.value
+    backendalb_sg_id = data.aws_ssm_parameter.backendalb_sg_id.value
 }

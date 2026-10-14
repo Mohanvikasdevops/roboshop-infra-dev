@@ -33,3 +33,4 @@ resource "aws_route53_record" "rabbitmq" {
     records = [aws_instance.rabbitmq.private_ip]
     allow_overwrite = true
 }
+
