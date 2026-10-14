@@ -4,7 +4,7 @@ data "aws_ami" "joindevops" {
 
   filter {
     name   = "name"
-    values = ["Redhat-9-DevOps-Practice"]
+    values = ["Redhat-9-DevOps-Practice*"]
   }
 
   filter {
@@ -46,6 +46,6 @@ data "aws_ssm_parameter" "rabbitmq_sg_id" {
   name = "/${var.project}/${var.environment}/rabbitmq_sg_id"
 }
 
-data "aws_ssm_parameter" "backendalb_sg_id" {
+data "aws_ssm_parameter" "backend_alb_sg_id" {
   name = "/${var.project}/${var.environment}/backend_alb_sg_id"
 }
