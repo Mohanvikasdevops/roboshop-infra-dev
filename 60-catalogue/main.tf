@@ -28,6 +28,9 @@ resource "terraform_data" "catalogue" {
         user = "ec2-user"
         password = "DevOps321"
         host = aws_instance.catalogue.private_ip
+
+        agent = false
+        timeout = "2m"
     }
 
     provisioner "file" {
@@ -43,8 +46,8 @@ resource "terraform_data" "catalogue" {
     }
 }
 
-action "aws_ec2_stop_instance" "catalogue" {
+/* action "aws_ec2_stop_instance" "catalogue" {
     config {
         instance_id = aws_instance.catalogue.id
     }
-}
+} */
