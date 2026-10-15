@@ -99,3 +99,12 @@ resource "aws_security_group_rule" "catalogue_backend_alb_ingress" {
   # This points to the catalogue security group shown in your image
   security_group_id        = local.catalogue_sg_id 
 }
+
+resource "aws_security_group_rule" "catalogue_vpn" {
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  source_security_group_id = local.vpn_sg_id # Change this if your local variable is named differently (e.g., openvpn_sg_id)
+  security_group_id        = local.catalogue_sg_id
+}
