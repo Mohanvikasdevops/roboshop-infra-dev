@@ -8,5 +8,4 @@ locals {
     user_sg_id = data.aws_ssm_parameter.user_sg_id.value
     redis_sg_id = data.aws_ssm_parameter.redis_sg_id.value
     backend_alb_sg_id = data.aws_ssm_parameter.backend_alb_sg_id.value
-    vpn_sg_id = data.aws_ssm_parameter.vpn_sg_id.value
 }
