@@ -88,3 +88,14 @@ resource "aws_security_group_rule" "catalogue_bastion" {
   source_security_group_id = local.bastion_sg_id
   security_group_id        = local.catalogue_sg_id
 }
+
+resource "aws_security_group_rule" "catalogue_backend_alb_ingress" {
+  type                     = "ingress"
+  from_port                = 8080
+  to_port                  = 8080
+  protocol                 = "tcp"
+  # This should reference the Backend ALB Security Group ID (which you likely have in a data source or local variable)
+  source_security_group_id = local.backend_alb_sg_id 
+  # This points to the catalogue security group shown in your image
+  security_group_id        = local.catalogue_sg_id 
+}
