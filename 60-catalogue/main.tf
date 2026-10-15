@@ -95,6 +95,10 @@ resource "aws_launch_template" "catalogue" {
     # each terraform apply run version will be updated as default
     update_default_version = true
 
+    /* iam_instance_profile {
+        name = local.iam_instance_profile_name
+    } */
+
 
     # tags for instances created by launch template through autoscaling
     tag_specifications {

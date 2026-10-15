@@ -33,3 +33,8 @@ data "aws_ssm_parameter" "private_subnet_ids" {
 data "aws_ssm_parameter" "backend_alb_listener_arn" {
     name = "/${var.project}/${var.environment}/backend_alb_listener_arn"
 }
+
+/* data "aws_ssm_parameter" "iam_instance_profile_name" {
+  # Replace "iam_instance_profile_name" with the exact parameter name you used in your IAM component
+  name = "/${var.project}/${var.environment}/iam_instance_profile_name"
+} */
